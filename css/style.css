@@ -595,7 +595,7 @@ header .menu img{
     padding: var(--section-padding) 0;
 }
 .team .container {
-    margin-top: 25px;
+    margin-top: 35px;
     display: grid;
     grid-template-columns: repeat(auto-fill , minmax(300px , 1fr));
     gap: 40px;
@@ -669,6 +669,90 @@ header .menu img{
     filter: grayscale(100%);
 }
 /* END team members style */
+/* Start services style */
+.services {
+    padding: var(--section-padding) 0;
+    background-color: var(--section-background);
+}
+.services .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(300px , 1fr));
+    gap: 40px;
+    margin-top: 35px;
+}
+.services .box  {
+    background-color: #ffff;
+    box-shadow: 0 12px 20px 0 rgb(0 0 0 / 13%), 0 2px 4px 0 rgb(0 0 0 / 12%);
+    counter-increment: box-num;
+    position: relative;
+    transition: var(--main-trans);
+}
+.services .box::before {
+    content: '';
+    position: absolute;
+    background-color: var(--main-color);
+    width: 0;
+    height: 0;
+    left: 50%;
+    top: -3px;
+    transform: translateX(-50%);
+    transition: var(--main-trans);
+}
+.services .box:hover {
+    transform: translateY(-15px);
+}
+.services .box:hover::before {
+    width: 100%;
+    height: 3px;
+}
+.services .box .header {
+    text-align: center;
+}
+.services .box .header i {
+    color: #d5d5d5;
+    display: block;
+    margin: 35px auto 25px;
+}
+.services .box .header h3 {
+    color: var(--main-color);
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+.services .box .content {
+    position: relative;
+    padding: 15px;
+    background-color: #f9f9f9;
+}
+.services .box .content::before {
+    content: "0" counter(box-num);
+    position: absolute;
+    height: 100%;
+    background-color: var(--main-color);
+    top: 0;
+    left: 0;
+    width: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffff;
+    font-size: 28px;
+    font-weight: bold;}
+.services .box .content::after {
+    content: '';
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-color: #d5d5d5;
+    top: 0;
+    left: 65px;
+    transform: skew(30deg);
+}
+.services .box .content a {
+    color: var(--main-color);
+    text-align: end;
+    display: block;
+}
+/* END services style */
 
 /* Start animations */
 @keyframes up-down {
