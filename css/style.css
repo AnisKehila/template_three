@@ -116,6 +116,7 @@ header .logo {
 header nav ul {
     display: flex;
 }
+
 header nav .nav > a {
     position: relative;
     height: 74px;
@@ -145,7 +146,19 @@ header .nav > a::before {
 header .nav > a:hover::before {
     right: 0%;
 }
-
+@media (max-width : 768px) {
+    header .nav > a{
+        font-size: 15px !important;
+        padding: 0 20px !important;
+        max-height: 55px;
+    }
+    header nav ul {
+        padding: 0 !important;
+    }
+    header .container {
+        flex-direction: column;
+    }
+}
 header .menu {
     position: absolute;
     background-color: white;
@@ -157,7 +170,8 @@ header .menu {
     padding: 30px;
     opacity: 0;
     z-index: -1;
-    transition: top var(--main-trans), opacity var(--main-trans);}
+    transition: top var(--main-trans), opacity var(--main-trans);
+}
 header .nav:hover .menu {
     z-index: 2;
     opacity: 1;
@@ -213,6 +227,33 @@ header .menu .links {
 header .menu img{
     max-width: 100%;
 }
+@media (max-width : 1200px) {
+    .menu img{
+        max-width: 40% !important;
+    }
+
+}
+@media (max-width : 992px) {
+    .menu img{
+        display: none;
+    }
+    .menu .row {
+        padding: 0 0 0 14px;
+    }
+}
+@media (max-width : 768px) {
+    .menu {
+        padding: 0 !important;
+        margin: 0 !important;
+        top: 149px !important;
+    }
+    .menu .links {
+        flex-direction: column;
+    }
+    header .menu .row li {
+        border-bottom: 1px #e9e6e6 solid;
+    }
+}
 /* END header style */
 /* Start landing style */
     .landing {
@@ -261,6 +302,14 @@ header .menu img{
     }
     .go-down i {
         animation: bouncing 1.5s infinite;
+    }
+    @media (max-width : 992px) {
+        .landing img {
+            display: none;
+        }
+        .landing .txt {
+            text-align: center;
+        }
     }
 
 /* END landing style */
@@ -413,7 +462,7 @@ header .menu img{
 .features .box .img::after {
     content: '';
     position: absolute;
-    bottom: 4px;
+    bottom: 0;
     left: 0;
     height: 0;
     border-width: 0 0 170px 500px;
@@ -502,6 +551,124 @@ header .menu img{
 }
 
 /* END features style */
+/* Start testimonials style */
+.testo {
+    padding: var(--section-padding) 0;
+    background-color: var(--section-background);
+}
+.testo .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(300px,1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+.testo .box {
+    background-color: #ffff;
+    position: relative;
+    padding: 20px;
+    border-radius: 5px;
+}
+.testo .box img{
+    position: absolute;
+    width: 100px;
+    border-radius: 50%;
+    top: -50px;
+    right: -12px;
+    border: 12px solid var(--section-background);
+}
+.testo .box h3 {
+    margin: 8px 0;
+}
+.testo .box p {
+    color: #777;
+    line-height: 1.6;
+}
+.testo .box .rating {
+    margin: 8px 0;
+}
+.testo .box .rating .filled {
+    color: #ffc107;
+}
+/* END testimonials style */
+/* Sart team members style */
+.team {
+    padding: var(--section-padding) 0;
+}
+.team .container {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(300px , 1fr));
+    gap: 40px;
+}
+.team .card {
+    position: relative;
+}
+
+.team .card::before,
+.team .card::after {
+    content: "";
+    height: 100%;
+    background-color: #f3f3f3;
+    border-radius: 8px;
+    position: absolute;
+    width: 0;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    transition: var(--main-trans);
+}
+.team .card::before {
+    width: 88%;
+}
+.team .card:hover::after {
+    width: 88%;
+    background-color: #e4e4e4;
+}
+.team .card .header {
+    margin-top: 60px;
+    display: flex;
+}
+.team .card .header .social{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    align-items: center;
+    gap: 21px;
+}
+.team .card .header .social i{
+    color: #777;
+    transition: var(--main-trans);
+}
+.team .card .header .social i:hover{
+    color: var(--main-color);
+}
+.team .card h3,.team .card p {
+    padding: 0 0 0 80px;
+}
+.team .card p {
+    margin: 20px 0;
+}
+.team .card h3 {
+    color: var(--main-color);
+    margin-top: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    transition: var(--main-trans);
+}
+.team .card:hover h3 {
+    color: #777;
+}
+.team img {
+    max-width: 86%;
+    border-radius: 8px;
+    transition: var(--main-trans);
+
+}
+.team .card:hover img {
+    filter: grayscale(100%);
+}
+/* END team members style */
 
 /* Start animations */
 @keyframes up-down {
