@@ -995,7 +995,7 @@ header .menu img{
     .events form #email {
         padding: 18px;
         border-radius: 0;
-        width: 445px;
+        width: 285px;
     }
 }
 /* email placeholder delete when click */
@@ -1320,6 +1320,12 @@ header .menu img{
 .discount {
     display: flex;
     min-height: 100vh;
+    flex-wrap: wrap;
+}
+@media (max-width: 750px) {
+    .discount {
+        flex-direction: column;
+    }
 }
 .discount .image {
     flex-basis: 50%;
@@ -1340,6 +1346,11 @@ header .menu img{
     font-size: 40px;
     letter-spacing: -0.8px;
     margin-bottom: 18px;
+}
+@media (max-width: 750px) {
+    .discount h2{
+        margin-top: 70px;
+    }
 }
 .discount .image p {
     text-align: center;
