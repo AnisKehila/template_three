@@ -1173,72 +1173,233 @@ header .menu img{
 /* END pricing style */
 
 /* Starts videos style */
-    .videos {
-        padding: var(--section-padding) 0 ;
-    }
+.videos {
+    padding: var(--section-padding) 0 ;
+}
+.videos .container {
+    margin-top: 75px;
+    display: flex;
+    border: 1px solid #ddd;
+    padding: 0;
+}
+.videos .vid-list {
+    flex-basis: 30%;
+}
+.videos .vid-list .header{
+    display: flex;
+    justify-content: space-between;
+    background-color: #f4f4f4;
+    padding: 20px;
+    font-size: 16px;
+}
+.videos .vid-list ul{
+    padding: 0;
+}
+.videos .vid-list ul li{
+    padding: 20px;
+    cursor: pointer;
+    transition: var(--main-trans);
+}
+
+.videos .vid-list ul li:not(:last-child){
+    border-bottom: 1px solid #ddd;
+}
+.videos .vid-list ul li span{
+    color: #777;
+}
+.videos .vid-list ul li p{
+    margin-bottom: 14px;
+    transition: var(--main-trans);
+}
+.videos .vid-list ul li:hover p{
+    color: var(--main-color);
+}
+.videos .vid-list ul li:hover{
+    background-color: #fafafa;
+}
+.videos img {
+    max-width: 100%;
+}
+.videos .vid {
+    padding: 14px;
+    background-color: var(--section-background);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.videos .vid .txt{
+    background-color: #fff;
+    padding: 22px;
+    margin-top: 12px;
+}
+@media (max-width: 992px) {
     .videos .container {
-        margin-top: 75px;
-        display: flex;
-        border: 1px solid #ddd;
-        padding: 0;
-    }
-    .videos .vid-list {
-        flex-basis: 30%;
-    }
-    .videos .vid-list .header{
-        display: flex;
-        justify-content: space-between;
-        background-color: #f4f4f4;
-        padding: 20px;
-        font-size: 16px;
-    }
-    .videos .vid-list ul{
-        padding: 0;
-    }
-    .videos .vid-list ul li{
-        padding: 20px;
-        cursor: pointer;
-        transition: var(--main-trans);
-    }
-
-    .videos .vid-list ul li:not(:last-child){
-        border-bottom: 1px solid #ddd;
-    }
-    .videos .vid-list ul li span{
-        color: #777;
-    }
-    .videos .vid-list ul li p{
-        margin-bottom: 14px;
-        transition: var(--main-trans);
-    }
-    .videos .vid-list ul li:hover p{
-        color: var(--main-color);
-    }
-    .videos .vid-list ul li:hover{
-        background-color: #fafafa;
-    }
-    .videos img {
-        max-width: 100%;
-    }
-    .videos .vid {
-        padding: 14px;
-        background-color: var(--section-background);
-        display: flex;
         flex-direction: column;
-        justify-content: space-between;
     }
-    .videos .vid .txt{
-        background-color: #fff;
-        padding: 22px;
-        margin-top: 12px;
-    }
-    @media (max-width: 992px) {
-        .videos .container {
-            flex-direction: column;
-        }
-    }
-
+}
 /* END videos style */
+
+/* Start stats style */
+.stats {
+    padding: var(--section-padding) 0;
+    background-image: url(../imgs/stats.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 0;
+}
+.stats::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(255, 255, 255, 95%);
+    z-index: -1;
+}
+.stats h1 {
+    font-size: 35px;
+    text-align: center;
+}
+.stats .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(250px , 1fr));
+    gap: 30px;
+}
+.stats .grid .box {
+    padding: 40px;
+    background-color: #fff;
+    opacity: 0.8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: var(--main-trans);
+}
+.stats .box:hover {
+    opacity: 1;
+}
+.stats .box::before,
+.stats .box::after {
+    content: '';
+    position: absolute;
+    background-color: var(--main-color);
+    width: 2px;
+    height: 0;
+    transition: 1.2s;
+}
+.stats .box::before {
+    top: 0;
+    right: 0;
+}
+.stats .box::after {
+    bottom: 0;
+    left: 0;
+}
+.stats .box:hover::before,
+.stats .box:hover::after {
+    height: 100%;
+}
+
+.stats .box .number {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 10px auto;
+}
+.stats .box .txt {
+    font-size: 20px;
+    font-style: italic;
+    color: var(--main-color);
+    font-weight: bold;
+}
+/* END stats style */
+
+/* Start discount style */
+.discount {
+    display: flex;
+    min-height: 100vh;
+}
+.discount .image {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-image: url(../imgs/discount-background1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+    color: white;
+    animation: change-background 8s linear infinite;
+    transition: var(--main-trans);
+}
+.discount h2 {
+    font-size: 40px;
+    letter-spacing: -0.8px;
+    margin-bottom: 18px;
+}
+.discount .image p {
+    text-align: center;
+    max-width: 520px;
+    line-height: 1.6;
+    font-size: 18px;
+    margin-bottom: 18px;
+}
+.discount .image::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(23, 135, 224, 98%);
+    z-index: -1;
+}
+.discount img {
+    width: 300px;
+    max-width: 100%;
+}
+.discount .form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: auto;
+}
+.discount .form textarea {
+    resize: none;
+}
+.discount .form input[type='text'],
+.discount .form textarea {
+    display: block;
+    padding: 15px;
+    width: 100%;
+    border: none;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    border-bottom: 2px #ccc solid;
+    outline: none;
+    caret-color: var(--main-color);
+}
+.discount .form input[type='submit'] {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    outline: none;
+    background-color: var(--main-color);
+    cursor: pointer;
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    transition: var(--main-trans);
+}
+.discount .form input[type='submit']:hover {
+    background-color: var(--secondary-color);
+}
+/* END discount style  */
 
 /* Start animations */
 @keyframes up-down {
@@ -1282,6 +1443,11 @@ header .menu img{
 @keyframes left-right {
     100% {
         transform: translateX(8px);
+    }
+}
+@keyframes change-background {
+    100% {
+        background-image: url(../imgs/discount-background2.jpg);
     }
 }
 @keyframes flashlight {
